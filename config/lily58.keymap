@@ -32,18 +32,18 @@
 		};
 
 		lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |      |       |       |      |       |   \|  |
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-//                     |      |      |      |        |  |       |      |       |       |
+// --------------------------------------------------------------------------------------------------------------------
+// |       |      |      |      |      |       |                  | NUM_LK |   (   |   )   |  MULTI |  DIV    |       |
+// |       |      |      |      |      |       |                  |        |   7   |   8   |    9   |  MINUS  |   \   |
+// |       |      |      |      |      |       |                  |        |   4   |   5   |    6   |  PLUS   |       |
+// |       |      |      |      |      |       |       |  |       |        |   1   |   2   |    3   |  ENTR   |       |
+//                       |      |      |       | LSHFT |  |       |   0    |  DOT  | COMMA |
 			bindings = <
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &kp BSLH
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-                        &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
+&trans    &trans  &trans  &trans   &trans   &trans                             &kp KP_NUMLOCK  &kp KP_LPAR  &kp KP_RPAR  &KP_MULTIPLY  &kp KP_DIVIDE  &trans
+&trans    &trans  &trans  &trans   &trans   &trans                             &trans          &kp N7       &kp N8       &kp N9        &kp KP_MINUS   &kp BSLH
+&trans    &trans  &trans  &trans   &trans   &trans                             &trans          &kp N4       &kp N5       &kp N6        &kp KP_PLUS    &trans
+&to 0     &trans  &trans  &trans   &trans   &trans     &trans       &trans     &trans          &kp N1       &kp N2       &kp N3        &kp KP_ENTER   &trans
+                          &trans   &trans   &trans     &kp LSHFT    &trans     &kp N0          &kp KP_DOT   &kp KP_COMMA
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -62,24 +62,6 @@
 &none          &none       &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE  &none                          &none     &kp LEFT   &kp DOWN  &kp RIGHT  &kp END   &kp DEL
 &none          &kp LC(Z)   &kp LC(X)     &kp LC(C)     &kp LC(V)   &none     &none      &none     &none     &none      &none     &none      &none     &none    
                                          &none         &none       &none     &none      &none     &none     &none      &none
-			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-
-		keypad_layer {
-// --------------------------------------------------------------------------------------------------------------------
-// |       |      |      |      |      |       |                  | NUM_LK |   (   |   )   |  MULTI |  DIV    |       |
-// |       |      |      |      |      |       |                  |        |   7   |   8   |    9   |  MINUS  |       |
-// |       |      |      |      |      |       |                  |        |   4   |   5   |    6   |  PLUS   |       |
-// |       |      |      |      |      |       |       |  |       |        |   1   |   2   |    3   |  ENTR   |       |
-//                       |      |      |       | LSHFT |  |       |   0    |  DOT  | COMMA |
-			bindings = <
-&none     &none  &none  &none   &none   &none                            &kp KP_NUMLOCK &kp KP_LPAR  &kp KP_RPAR  &KP_MULTIPLY  &kp KP_DIVIDE  &none
-&none     &none  &none  &none   &none   &none                            &none          &kp N7       &kp N8       &kp N9        &kp KP_MINUS   &none
-&none     &none  &none  &none   &none   &none                            &none          &kp N4  	 &kp N5       &kp N6        &kp KP_PLUS    &none
-&to 0     &none  &none  &none   &none   &none     &none        &none     &none          &kp N1       &kp N2       &kp N3 	    &kp KP_ENTER   &none
-                        &none   &none   &none     &kp LSHFT    &none     &kp N0         &kp KP_DOT   &kp KP_COMMA
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
